@@ -1,0 +1,51 @@
+
+.cell {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background: linear-gradient(to bottom, #e0e0e0, #8e9ac4);
+    border: 1px solid #536abd;
+    border-radius: 4px;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    background: #4f3f91;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.298);
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(19, 32px);
+    gap: 2px;
+    background: #121631;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.black-stone {
+    background: black;
+    color: white;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2) ;
+}
+
+.white-stone {
+    background: white;
+    color: black;
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.winning-cell {
+    outline: 3px solid red;
+    box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.7);
+}
+
+

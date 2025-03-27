@@ -1,10 +1,10 @@
 import './App.css'
-import RenjuGame from './pages/renjuGame'
+import RenjuGame from './pages/RenjuGame/RenjuGame'
 
 function App() {
 
   return (
-    <div className="min-h-screen p-4 bg-green-50">
+    <div>
       <RenjuGame />
     </div>
   )

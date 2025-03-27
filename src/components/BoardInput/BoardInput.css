@@ -1,0 +1,9 @@
+.board-input {
+    width: 100%;
+    width: 340px;
+    height: 400px;
+    font-family: monospace;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+}
