@@ -10,7 +10,7 @@ export const DIRECTIONS = [
 ];
 
 export const examples: Record<string, string> = {
-  'Horizontal (Black)': `
+  'Initial': `
     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0

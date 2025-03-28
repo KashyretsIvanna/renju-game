@@ -15,7 +15,7 @@ const recognizeInput = (input: string): Grid => {
 const data: Record<string, string> = examples;
 
 const RenjuGame = () => {
-    const [input, setInput] = useState(data["Horizontal (Black)"]);
+    const [input, setInput] = useState(data["Initial"]);
     const board = recognizeInput(input);
     const result = determineWinner(board);
 
