@@ -5,7 +5,6 @@ import { determineWinner } from "../../utils";
 import GameResultComponent from "../../components/GameResult/GameResult";
 import BoardInput from "../../components/BoardInput/BoardInput";
 import BoardGrid from "../../components/BoardGrid/BoardGrid";
-import PresetSelector from "../../components/GameOptionsSelector/GameOptionsSelector";
 import "./RenjuGame.css";
 
 const recognizeInput = (input: string): Grid => {
@@ -25,7 +24,6 @@ const RenjuGame = () => {
             <div className="renju-left-container">
                 <BoardInput value={input} onChange={setInput} />
                 <div>
-                    <PresetSelector onSelect={setInput} options={examples} />
                     <GameResultComponent result={result} />
                 </div>
             </div>
