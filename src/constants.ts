@@ -3,14 +3,14 @@
 export const BOARD_SIZE = 19;
 export const WIN_STREAK = 5;
 export const DIRECTIONS = [
-  { dr: 0, dc: 1 },
-  { dr: 1, dc: 0 },
-  { dr: 1, dc: 1 },
-  { dr: -1, dc: 1 },
+  { deltaRow: 0, deltaCol: 1 },
+  { deltaRow: 1, deltaCol: 0 },
+  { deltaRow: 1, deltaCol: 1 },
+  { deltaRow: -1, deltaCol: 1 },
 ];
 
 export const examples: Record<string, string> = {
-  'Initial': `
+  Initial: `
     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0

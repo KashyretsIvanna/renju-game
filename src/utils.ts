@@ -19,25 +19,28 @@ export const determineWinner = (
       const current = grid[row][col];
       if (current === Stone.Empty) continue;
 
-      for (const { dr, dc } of DIRECTIONS) {
+      for (const { deltaRow, deltaCol } of DIRECTIONS) {
         let streak = 1;
-        let nextRow = row + dr;
-        let nextCol = col + dc;
+        let nextRow = row + deltaRow;
+        let nextCol = col + deltaCol;
 
         while (
           withinRange(nextRow, nextCol) &&
           grid[nextRow][nextCol] === current
+          && streak < WIN_STREAK
         ) {
           streak++;
-          nextRow += dr;
-          nextCol += dc;
+          nextRow += deltaRow;
+          nextCol += deltaCol;
         }
 
+        if (streak !== WIN_STREAK) continue;
+
         if (streak === WIN_STREAK) {
-          const beforeRow = row - dr;
-          const beforeCol = col - dc;
-          const afterRow = row + dr * WIN_STREAK;
-          const afterCol = col + dc * WIN_STREAK;
+          const beforeRow = row - deltaRow;
+          const beforeCol = col - deltaCol;
+          const afterRow = row + deltaRow * WIN_STREAK;
+          const afterCol = col + deltaCol * WIN_STREAK;
 
           const hasBefore =
             withinRange(beforeRow, beforeCol) &&
