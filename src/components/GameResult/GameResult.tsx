@@ -5,7 +5,7 @@ interface Props {
     result: GameResult;
 }
 
-const GameResultComponent: React.FC<Props> = ({ result: { winner, startPosition } }) => {
+const GameResultComponent: React.FC<Props> = ({ result: { winner } }) => {
     const showWinner = () => {
         if (winner === Stone.Empty) return;
         return `${winner === Stone.Black ? "black" : "white"}`;
