@@ -5,11 +5,7 @@ import {
   DIRECTIONS,
   WIN_STREAK,
 } from './constants';
-import {
-    Grid,
-  GameResult,
-  Stone,
-} from './types';
+import { Grid, GameResult, Stone } from './types';
 
 export const determineWinner = (
   grid: Grid,
@@ -19,15 +15,18 @@ export const determineWinner = (
       const current = grid[row][col];
       if (current === Stone.Empty) continue;
 
-      for (const { deltaRow, deltaCol } of DIRECTIONS) {
+      for (const {
+        deltaRow,
+        deltaCol,
+      } of DIRECTIONS) {
         let streak = 1;
         let nextRow = row + deltaRow;
         let nextCol = col + deltaCol;
 
         while (
           withinRange(nextRow, nextCol) &&
-          grid[nextRow][nextCol] === current
-          && streak < WIN_STREAK
+          grid[nextRow][nextCol] === current &&
+          streak < WIN_STREAK
         ) {
           streak++;
           nextRow += deltaRow;
@@ -36,26 +35,25 @@ export const determineWinner = (
 
         if (streak !== WIN_STREAK) continue;
 
-        if (streak === WIN_STREAK) {
-          const beforeRow = row - deltaRow;
-          const beforeCol = col - deltaCol;
-          const afterRow = row + deltaRow * WIN_STREAK;
-          const afterCol = col + deltaCol * WIN_STREAK;
+        const beforeRow = row - deltaRow;
+        const beforeCol = col - deltaCol;
+        const afterRow =
+          row + deltaRow * WIN_STREAK;
+        const afterCol =
+          col + deltaCol * WIN_STREAK;
 
-          const hasBefore =
-            withinRange(beforeRow, beforeCol) &&
-            grid[beforeRow][beforeCol] ===
-              current;
-          const hasAfter =
-            withinRange(afterRow, afterCol) &&
-            grid[afterRow][afterCol] === current;
+        const hasBefore =
+          withinRange(beforeRow, beforeCol) &&
+          grid[beforeRow][beforeCol] === current;
+        const hasAfter =
+          withinRange(afterRow, afterCol) &&
+          grid[afterRow][afterCol] === current;
 
-          if (!hasBefore && !hasAfter) {
-            return {
-              winner: current,
-              startPosition: { row, col },
-            };
-          }
+        if (!hasBefore && !hasAfter) {
+          return {
+            winner: current,
+            startPosition: { row, col },
+          };
         }
       }
     }
